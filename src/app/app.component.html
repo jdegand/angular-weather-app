@@ -1,0 +1,147 @@
+<main *ngIf="weatherData">
+  <section class="side-panel">
+    <div class="side-panel-inside">
+      <div class="flex between">
+        <form #form="ngForm" (submit)="onSubmit()">
+          <label for="city-input" class="sr-only">Search</label>
+          <input id="city-input" type="text" placeholder="Search for Places" name="city" [(ngModel)]="city" />
+        </form>
+        <button class="flex align-center locations-button" (click)="sideBarToggler()">
+          <img src="../assets/crosshairs-gps.svg" alt="Locations" />
+        </button>
+      </div>
+      <div class="suggestions" *ngIf="sideBarOpen">
+        <button class="suggestion-button" (click)="onSuggestion('Atlanta')">Atlanta <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Boston')">Boston <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Charlotte')">Charlotte <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Detroit')">Detroit <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Miami')">Miami <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Nashville')">Nashville <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('New York')">New York <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('New Orleans')">New Orleans <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Las Vegas')">Las Vegas <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Los Angeles')">Los Angeles <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Philadelphia')">Philadelphia <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Phoenix')">Phoenix <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Portland')">Portland <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Seattle')">Seattle <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Washington D.C.')">Washington DC <img src="../assets/chevron-right.svg" alt=""></button>
+      </div>
+      <div>
+        <div>
+          <div *ngIf="weatherData.list[0].weather[0].description === 'clear sky'">
+            <img src="../assets/Clear.png" alt=""/>
+          </div>
+          <div *ngIf="weatherData.list[0].weather[0].description === 'broken clouds'|| 
+                weatherData.list[0].weather[0].description === 'scattered clouds' || 
+                weatherData.list[0].weather[0].description === 'few clouds'"
+              >
+            <img src="../assets/LightCloud.png" alt=""/>
+          </div>
+          <div *ngIf="weatherData.list[0].weather[0].description === 'overcast clouds'">
+            <img src="../assets/HeavyCloud.png" alt=""/>
+          </div>
+          <div *ngIf="weatherData.list[0].weather[0].description === 'light rain'">
+            <img src="../assets/LightRain.png" alt="">
+          </div>
+          <div *ngIf="weatherData.list[0].weather[0].description === 'heavy intensity rain' || weatherData.list[0].weather[0].description === 'heavy rain' || weatherData.list[0].weather[0].description === 'moderate rain'">
+            <img src="../assets/HeavyRain.png" alt="">
+          </div>
+        </div>
+        <h1><span class="main-temp">{{weatherData.list[0].main.temp | number: '1.0-0'}}</span>&#176;F</h1>
+        <div class="condition">{{weatherData.list[0].weather[0].main}}</div>
+        <div class="font-24">Today • {{weatherData.list[0].dt_txt.split(' ')[0].replace('2022-', '')}}</div>
+        <div class="flex justify-center font-24">
+          <img src="../assets/map-marker.svg" alt=""/> 
+          {{weatherData.city.name}}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="main-content">
+    <h1>Five Day Week</h1>
+    <div class="five-day">
+      <div *ngFor="let item of weatherData.list">
+        <article *ngIf="item.dt_txt.includes('9:00:00')" class="five-day-card">
+          <h2>{{item.dt_txt.split(' ')[0].replace('2022-', '')}}</h2>
+          <!--<h3>{{item.weather[0].main}}</h3> ngSwitch? here for images-->
+          <!--had a wrapper around this -empty divs are created from the ngIf better to use a ng-template instead -->
+            <div *ngIf="item.weather[0].description === 'clear sky'">
+              <img src="../assets/Clear.png" alt=""/>
+            </div>
+            <div *ngIf="item.weather[0].description === 'broken clouds'|| item.weather[0].description === 'scattered clouds' || item.weather[0].description === 'few clouds'">
+              <img src="../assets/LightCloud.png" alt=""/>
+            </div>
+            <div *ngIf="item.weather[0].description === 'overcast clouds'">
+              <img src="../assets/HeavyCloud.png" alt=""/>
+            </div>
+            <div *ngIf="item.weather[0].description === 'light rain'">
+              <img src="../assets/LightRain.png" alt="">
+            </div>
+            <div *ngIf="item.weather[0].description === 'heavy intensity rain' || item.weather[0].description === 'moderate rain' || item.weather[0].description === 'heavy rain'">
+              <img src="../assets/HeavyRain.png" alt="">
+            </div>
+          <!--div wrapping was here-->
+          <div class="day-card-temps flex">
+            <div>{{item.main.temp_max | number: '1.0-0'}}&#176;F</div>
+            <div class="silver">{{item.main.temp_min | number: '1.0-0'}}&#176;F</div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="highlights">
+      <h2>Today's Hightlights</h2>
+      <div class="highlight-card-wrapper">
+        <div class="highlight-card">
+          <h3>Wind status</h3>
+          <div>
+            <div><span class="font-32">{{weatherData.list[0].wind.speed | number: '1.0-0'}}</span> mph</div>
+            <div class="flex align-center justify-center">
+              <div>
+                <img [ngStyle]="{'transform': 'rotate('+weatherData.list[0].wind.deg+'deg)', 'background': '#616475', 'border-radius': '50%', 'padding':'5px', 'margin':'0 5px 0 0'}" src="../assets/navigation.svg" alt=""/>
+              </div>
+              <div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 348.75 && weatherData.list[0].wind.deg <= 11.25">N</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 11.25 && weatherData.list[0].wind.deg <= 33.75">NNE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 33.75 && weatherData.list[0].wind.deg <= 56.25">NE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 56.25 && weatherData.list[0].wind.deg <= 78.75">ENE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 78.75 && weatherData.list[0].wind.deg <= 101.25">E</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 101.25 && weatherData.list[0].wind.deg <= 123.75">ESE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 123.75 && weatherData.list[0].wind.deg <= 146.25">SE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 146.25 && weatherData.list[0].wind.deg <= 168.75">SSE</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 168.75 && weatherData.list[0].wind.deg <= 191.25">S</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 191.25 && weatherData.list[0].wind.deg <= 213.75">SSW</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 213.75 && weatherData.list[0].wind.deg <= 236.25">SW</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 236.25 && weatherData.list[0].wind.deg <= 258.75">WSW</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 258.75 && weatherData.list[0].wind.deg <= 281.25">W</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 281.25 && weatherData.list[0].wind.deg <= 303.75">WNW</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 303.75 && weatherData.list[0].wind.deg <= 326.25">NW</div>
+                <div *ngIf="weatherData.list[0].wind.deg >= 326.25 && weatherData.list[0].wind.deg <= 348.75">NNW</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <h3><label for="humid">Humidity</label></h3>
+          <div><span class="font-32">{{weatherData.list[0].main.humidity }}</span>%</div>
+          <div class="flex progress-width justify-center">
+            <!--<div class="zero">0</div>
+            <div class="fifty">50</div>
+            <div class="hundred">100</div>-->
+            <progress name="humid" value="{{weatherData.list[0].main.humidity}}" max="100">{{weatherData.list[0].main.humidity}} %</progress>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <h3>Visibility</h3> <!--visibility is in meters to convert to miles divide by 1609-->
+          <div><span class="font-32">{{weatherData.list[0].visibility / 1609 | number: '1.0-0'}}</span> miles</div>
+        </div>
+        <div class="highlight-card">
+          <h3>Air Pressure</h3>
+          <div><span class="font-32">{{weatherData.list[0].main.pressure}}</span> mb</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<router-outlet></router-outlet>

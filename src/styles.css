@@ -1,0 +1,221 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.12,
+* Autoprefixer: v10.4.4
+* Browsers: last 4 version
+*/
+
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --searchBtn: #3c47e9;
+  --mainBg: #100e1d;
+  --yellowProgress: #e3d360;
+  --sidePanel: #1e213a;
+  --gray: #616475;
+  --white: #e7e7eb;
+  --silver: #a09fb1;
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+-webkit-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+margin: 0;
+}
+
+ul,
+ol {
+list-style: none;
+}
+
+html:focus-within {
+scroll-behavior: smooth;
+}
+
+body {
+min-height: 100vh;
+text-rendering: optimizeSpeed;
+line-height: 1.5;
+}
+
+a:not([class]) {
+-webkit-text-decoration-skip: ink;
+        text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+html:focus-within {
+ scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-animation-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
+  -webkit-transition-duration: 0.01ms !important;
+       -o-transition-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+}
+
+/* End of RESET */
+
+/* Utility */
+
+.pointer {
+cursor: pointer;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.between {
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+}
+
+.align-center {
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+}
+
+.justify-center {
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+}
+
+.around {
+-ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.padding-10 {
+padding: 0 10px;
+}
+
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border: 0;
+}
+
+.font-24 {
+font-size: 24px;
+}
+
+.font-32 {
+font-size: 32px;
+}
+
+.silver {
+color: var(--silver);
+}
+
+/* End of Utility */
+
+body {
+  background: var(--sidePanel);
+  color: #fff;
+  font-size: 18px;
+}
+
+progress {
+background-color: var(--white);
+color: var(--yellowProgress);
+border-radius: 20px;
+position: relative;
+margin-block: 20px;
+}
+
+/* background: */
+progress::-webkit-progress-bar {
+background-color: var(--white);
+border-radius: 20px;
+}
+
+/* value: */
+progress::-webkit-progress-value {
+background-color: var(--yellowProgress) !important;
+border-radius: 20px;
+}
+
+progress::-moz-progress-bar {
+background-color: var(--yellowProgress) !important;
+border-radius: 20px;
+}
+
+input {
+background-color: #948c82;
+color: var(--white);
+font-weight: bolder;
+width: 90%;
+}
+
+input::-webkit-input-placeholder {
+color: var(--white);
+font-weight: bolder;
+}
+
+button {
+background: var(--gray);
+border-radius: 50%;
+border: none;
+padding: 5px;
+cursor: pointer;
+}
+
+image {
+width: 100px;
+height: 100px;
+-o-object-fit: contain;
+   object-fit: contain;
+}
+
+@media (min-width: 768px){
+input {
+  width: inherit;
+}
+}
