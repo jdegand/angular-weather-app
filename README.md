@@ -2,15 +2,13 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-  - [Built With](#built-with)
+- [Screenshots](#screenshots)
+- [Built With](#built-with)
 - [How to use](#how-to-use)
 - [Thoughts](#thoughts)
 - [Useful Resources](#useful-resources)
 
-## Overview
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+## Screenshots
 
 ![](angular-weather-app-mobile.png)
 
@@ -26,9 +24,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![](angular-weather-app-desktop-suggestions.png)
 
+## Built With
 
-### Built With
-
+- [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 - [Angular](https://angular.io)
 - [OpenWeatherMap Api](https://openweathermap.org/api)
 
@@ -51,10 +49,9 @@ $ npm start
 
 ## Thoughts
 
-I based this off the [devchallenges weather app](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).  I tried to do this in Angular as I have put Angular down for a while and I don't want to lose all my Angular knowledge.  I have thought Angular is not worth spending time on even though I enjoyed using and learning it. So many frameworks/libraries are quicker and lighter than Angular. Angular is lacking compared to competitors and it doesn't seem to gaining any ground either. 
+I based this off the [devchallenges weather app](https://legacy.devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
 
-My ngIf's return the correct results I want but they add many extra empty divs.  This creates problems with using a grid wrapper.  Putting the 5 day forecast into a grid on mobile is not a good design choice anyway but it is in the devchallenge design. I tried to add an else block to the conditions but that did not work.  It may be inheriting these empty divs from the prior loop of the weather list array.  The ngIf implementation does not completely supplant the ng-template implementation and this is disappointing.  Apparently, ng-template does not leave empty divs with comments in the html.    
-
+My ngIf's return the correct results but they add many extra empty divs.  This creates problems with using a grid wrapper.  Putting the 5 day forecast into a grid on mobile is not a good design choice anyway but it is in the devchallenges' design. I tried to add an else block to the conditions but that did not work.  It may be inheriting these empty divs from the prior loop of the weather list array.  The ngIf implementation does not completely supplant the ng-template implementation and this is disappointing.  Apparently, ng-template does not leave empty divs with comments in the html.    
 
 ```html
           <div *ngIf="item.weather[0].description === 'clear sky'">
@@ -80,15 +77,15 @@ I tried to limit my app to one initial network request.  The design requires mul
 
 The 5 day forecast endpoint provides too many results.  I used a conditional to limit it to the 9:00 am forecast. Depending on the time of day, you may see today included in the 5 day forecast.  Another problem with this approach is that the min and max temperatures don't cover the whole day so they are often the same.  
 
-I didn't try to convert to Celsius since I made my request in imperial units.  If a user toggled between celsius and fahrenheit, you could trigger another request (changing the units parameter) or convert the returned values to celsius with a function.    
+I didn't try to convert to Celsius since I made my request in imperial units.  If a user toggled between celsius and fahrenheit, you could trigger another request (changing the units parameter) or you could convert the returned values to celsius with a function or even a custom pipe.    
 
-Filtering the background clouds was made easier by following a [CSS Tricks](https://css-tricks.com/apply-a-filter-to-a-background-image/) article.  You need a pseudo-element to add and filter just the background-image and not the inner contents.
+I applied a filter to the background clouds by following a [CSS Tricks](https://css-tricks.com/apply-a-filter-to-a-background-image/) article.  You need a pseudo-element to add and filter just the background-image and not the inner contents.
 
 The background image on desktop is hard to place identically to the mobile version.    It is really a lot of trial and error to get it right. Ideally, you'd have multiple different cropped backgrounds for mobile, tablet and desktop versions.   
 
-Made a suggestions panel with cities.  Used buttons to make it keyboard accessible.  The devchallenges design has cities from various countries. The openweathermap api is US-centric so I used only US cities.
+I made a suggestions panel with cities.  I used buttons to make it keyboard accessible.  The devchallenges design has cities from various countries. The openweathermap api is US-centric so I used only US cities.
 
-Openweathermap api has a new endpoint - "one-call".  Could potentially help the min and max problem.   
+Openweathermap api has a new endpoint - "one-call".  This api endpoint could potentially help fix the min and max problem.   
 
 ## Useful Resources
 
