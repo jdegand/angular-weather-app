@@ -51,6 +51,9 @@ body {
         min-height: 100vh;
         text-rendering: optimizeSpeed;
         line-height: 1.5;
+        background: var(--sidePanel);
+        color: #fff;
+        font-size: 18px;
 }
 
 a:not([class]) {
@@ -155,12 +158,6 @@ select {
 }
 
 /* End of Utility */
-
-body {
-        background: var(--sidePanel);
-        color: #fff;
-        font-size: 18px;
-}
 
 progress {
         background-color: var(--white);
