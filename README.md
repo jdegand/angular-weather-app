@@ -10,19 +10,33 @@
 
 ## Screenshots
 
-![](angular-weather-app-mobile.png)
+![Mobile](angular-weather-app-mobile.png)
 
-![](angular-weather-app-mobile-highlights.png)
+***
 
-![](angular-weather-app-mobile-suggestions.png)
+![Mobile Highlights](angular-weather-app-mobile-highlights.png)
 
-![](angular-weather-app-mobile-search.png)
+***
 
-![](angular-weather-app-mobile-search-result.png)
+![Mobile Suggestions](angular-weather-app-mobile-suggestions.png)
 
-![](angular-weather-app-desktop.png)
+***
 
-![](angular-weather-app-desktop-suggestions.png)
+![Mobile Search](angular-weather-app-mobile-search.png)
+
+***
+
+![Mobile Search Result](angular-weather-app-mobile-search-result.png)
+
+***
+
+![Desktop](angular-weather-app-desktop.png)
+
+***
+
+![Desktop Suggestions](angular-weather-app-desktop-suggestions.png)
+
+***
 
 ## Built With
 
@@ -36,7 +50,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/jdegand/angular-weather-app
+$ git clone https://github.com/jdegand/angular-weather-app.git
 
 # Install dependencies
 $ npm install
@@ -49,7 +63,7 @@ $ npm start
 
 ## Thoughts
 
-I based this off the [devchallenges weather app](https://legacy.devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
+I based this off the [devchallenges weather app](https://web.archive.org/web/20240417020055/https://legacy.devchallenges.io/challenges/mM1UIenRhK808W8qmLWv).
 
 My ngIf's return the correct results but they add many extra empty divs.  This creates problems with using a grid wrapper.  Putting the 5 day forecast into a grid on mobile is not a good design choice anyway but it is in the devchallenges' design. I tried to add an else block to the conditions but that did not work.  It may be inheriting these empty divs from the prior loop of the weather list array.  The ngIf implementation does not completely supplant the ng-template implementation and this is disappointing.  Apparently, ng-template does not leave empty divs with comments in the html.    
 
