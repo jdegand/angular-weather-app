@@ -10,8 +10,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .main-content {
@@ -20,11 +20,11 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     background: var(--mainBg);
     text-align: center;
 }
@@ -41,21 +41,15 @@
 }
 
 .side-panel {
-    height: 600px; /*425px */
+    height: 600px;
     width: 100%;
     text-align: center;
     padding: 10px;
     color: var(--silver);
-    /*
-    background-image: url(../assets/Cloud-background.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 150%;
-    background-blend-mode: darken;
-    */
     position: relative;
-  }
-  .side-panel::before {
+}
+
+.side-panel::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -65,21 +59,15 @@
     background-size: auto;
     background-image: url(../assets/Cloud-background.png);
     -webkit-filter: opacity(0.2);
-            filter: opacity(0.2);
+    filter: opacity(0.2);
     top: -100px;
     left: 0;
-  }
-  .side-panel-inside {
+}
+
+.side-panel-inside {
     /* This will make it stack on top of the ::before */
     position: relative;
-  }
-/*
-.five-day {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
 }
-*/
 
 .five-day-card {
     background: #1e213a;
@@ -90,11 +78,11 @@
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin-block: 20px;
 }
 
@@ -116,15 +104,15 @@
 }
 
 .suggestion-button {
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     cursor: pointer;
     padding: 0 10px;
     background: #1e213a;
@@ -140,20 +128,11 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
-/*
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 10px;
-}
-*/
-
-@media (min-width: 800px){
+@media (min-width: 800px) {
 
     main {
         display: -webkit-box;
@@ -161,22 +140,22 @@
         display: flex;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         text-align: center;
     }
 
     .main-content {
         -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         padding: 30px;
     }
 
-    .main-content h1, 
+    .main-content h1,
     .highlights h2 {
         display: block;
         width: 100%;
@@ -194,15 +173,15 @@
         display: -ms-flexbox;
         display: flex;
         -webkit-margin-after: 25px;
-                margin-block-end: 25px;
+        margin-block-end: 25px;
     }
 
     .five-day-card {
         width: 75%;
         height: 100%;
         -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
     }
 
     .highlights {
@@ -210,7 +189,7 @@
         display: -ms-flexbox;
         display: flex;
         -ms-flex-wrap: inherit;
-            flex-wrap: inherit;
+        flex-wrap: inherit;
         width: 100%;
     }
 
@@ -235,20 +214,20 @@
         background-size: contain;
         background-image: url(../assets/Cloud-background.png);
         -webkit-filter: opacity(0.2);
-                filter: opacity(0.2);
+        filter: opacity(0.2);
         top: -250px;
         left: -150px;
-      }
+    }
 }
 
-@media(min-width: 800px){
+@media(min-width: 800px) {
     .side-panel {
         height: 100vh;
         width: 40%;
     }
 }
 
-@media(min-width: 1100px){
+@media(min-width: 1100px) {
     .side-panel {
         height: 100vh;
         width: 25%;

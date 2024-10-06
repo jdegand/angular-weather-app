@@ -11,40 +11,55 @@
         </button>
       </div>
       <div class="suggestions" *ngIf="sideBarOpen">
-        <button class="suggestion-button" (click)="onSuggestion('Atlanta')">Atlanta <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Boston')">Boston <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Charlotte')">Charlotte <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Detroit')">Detroit <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Miami')">Miami <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Nashville')">Nashville <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('New York')">New York <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('New Orleans')">New Orleans <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Las Vegas')">Las Vegas <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Los Angeles')">Los Angeles <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Philadelphia')">Philadelphia <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Phoenix')">Phoenix <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Portland')">Portland <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Seattle')">Seattle <img src="../assets/chevron-right.svg" alt=""></button>
-        <button class="suggestion-button" (click)="onSuggestion('Washington D.C.')">Washington DC <img src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Atlanta')">Atlanta <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Boston')">Boston <img src="../assets/chevron-right.svg"
+            alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Charlotte')">Charlotte <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Detroit')">Detroit <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Miami')">Miami <img src="../assets/chevron-right.svg"
+            alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Nashville')">Nashville <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('New York')">New York <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('New Orleans')">New Orleans <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Las Vegas')">Las Vegas <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Los Angeles')">Los Angeles <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Philadelphia')">Philadelphia <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Phoenix')">Phoenix <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Portland')">Portland <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Seattle')">Seattle <img
+            src="../assets/chevron-right.svg" alt=""></button>
+        <button class="suggestion-button" (click)="onSuggestion('Washington D.C.')">Washington DC <img
+            src="../assets/chevron-right.svg" alt=""></button>
       </div>
       <div>
         <div>
           <div *ngIf="weatherData.list[0].weather[0].description === 'clear sky'">
-            <img src="../assets/Clear.png" alt=""/>
+            <img src="../assets/Clear.png" alt="" />
           </div>
           <div *ngIf="weatherData.list[0].weather[0].description === 'broken clouds'|| 
                 weatherData.list[0].weather[0].description === 'scattered clouds' || 
-                weatherData.list[0].weather[0].description === 'few clouds'"
-              >
-            <img src="../assets/LightCloud.png" alt=""/>
+                weatherData.list[0].weather[0].description === 'few clouds'">
+            <img src="../assets/LightCloud.png" alt="" />
           </div>
           <div *ngIf="weatherData.list[0].weather[0].description === 'overcast clouds'">
-            <img src="../assets/HeavyCloud.png" alt=""/>
+            <img src="../assets/HeavyCloud.png" alt="" />
           </div>
           <div *ngIf="weatherData.list[0].weather[0].description === 'light rain'">
             <img src="../assets/LightRain.png" alt="">
           </div>
-          <div *ngIf="weatherData.list[0].weather[0].description === 'heavy intensity rain' || weatherData.list[0].weather[0].description === 'heavy rain' || weatherData.list[0].weather[0].description === 'moderate rain'">
+          <div
+            *ngIf="weatherData.list[0].weather[0].description === 'heavy intensity rain' || weatherData.list[0].weather[0].description === 'heavy rain' || weatherData.list[0].weather[0].description === 'moderate rain'">
             <img src="../assets/HeavyRain.png" alt="">
           </div>
         </div>
@@ -52,7 +67,7 @@
         <div class="condition">{{weatherData.list[0].weather[0].main}}</div>
         <div class="font-24">Today • {{weatherData.list[0].dt_txt.split(' ')[0].replace('2022-', '')}}</div>
         <div class="flex justify-center font-24">
-          <img src="../assets/map-marker.svg" alt=""/> 
+          <img src="../assets/map-marker.svg" alt="" />
           {{weatherData.city.name}}
         </div>
       </div>
@@ -66,21 +81,23 @@
           <h2>{{item.dt_txt.split(' ')[0].replace('2022-', '')}}</h2>
           <!--<h3>{{item.weather[0].main}}</h3> ngSwitch? here for images-->
           <!--had a wrapper around this -empty divs are created from the ngIf better to use a ng-template instead -->
-            <div *ngIf="item.weather[0].description === 'clear sky'">
-              <img src="../assets/Clear.png" alt=""/>
-            </div>
-            <div *ngIf="item.weather[0].description === 'broken clouds'|| item.weather[0].description === 'scattered clouds' || item.weather[0].description === 'few clouds'">
-              <img src="../assets/LightCloud.png" alt=""/>
-            </div>
-            <div *ngIf="item.weather[0].description === 'overcast clouds'">
-              <img src="../assets/HeavyCloud.png" alt=""/>
-            </div>
-            <div *ngIf="item.weather[0].description === 'light rain'">
-              <img src="../assets/LightRain.png" alt="">
-            </div>
-            <div *ngIf="item.weather[0].description === 'heavy intensity rain' || item.weather[0].description === 'moderate rain' || item.weather[0].description === 'heavy rain'">
-              <img src="../assets/HeavyRain.png" alt="">
-            </div>
+          <div *ngIf="item.weather[0].description === 'clear sky'">
+            <img src="../assets/Clear.png" alt="" />
+          </div>
+          <div
+            *ngIf="item.weather[0].description === 'broken clouds'|| item.weather[0].description === 'scattered clouds' || item.weather[0].description === 'few clouds'">
+            <img src="../assets/LightCloud.png" alt="" />
+          </div>
+          <div *ngIf="item.weather[0].description === 'overcast clouds'">
+            <img src="../assets/HeavyCloud.png" alt="" />
+          </div>
+          <div *ngIf="item.weather[0].description === 'light rain'">
+            <img src="../assets/LightRain.png" alt="">
+          </div>
+          <div
+            *ngIf="item.weather[0].description === 'heavy intensity rain' || item.weather[0].description === 'moderate rain' || item.weather[0].description === 'heavy rain'">
+            <img src="../assets/HeavyRain.png" alt="">
+          </div>
           <!--div wrapping was here-->
           <div class="day-card-temps flex">
             <div>{{item.main.temp_max | number: '1.0-0'}}&#176;F</div>
@@ -98,7 +115,9 @@
             <div><span class="font-32">{{weatherData.list[0].wind.speed | number: '1.0-0'}}</span> mph</div>
             <div class="flex align-center justify-center">
               <div>
-                <img [ngStyle]="{'transform': 'rotate('+weatherData.list[0].wind.deg+'deg)', 'background': '#616475', 'border-radius': '50%', 'padding':'5px', 'margin':'0 5px 0 0'}" src="../assets/navigation.svg" alt=""/>
+                <img
+                  [ngStyle]="{'transform': 'rotate('+weatherData.list[0].wind.deg+'deg)', 'background': '#616475', 'border-radius': '50%', 'padding':'5px', 'margin':'0 5px 0 0'}"
+                  src="../assets/navigation.svg" alt="" />
               </div>
               <div>
                 <div *ngIf="weatherData.list[0].wind.deg >= 348.75 && weatherData.list[0].wind.deg <= 11.25">N</div>
@@ -128,7 +147,8 @@
             <!--<div class="zero">0</div>
             <div class="fifty">50</div>
             <div class="hundred">100</div>-->
-            <progress name="humid" value="{{weatherData.list[0].main.humidity}}" max="100">{{weatherData.list[0].main.humidity}} %</progress>
+            <progress name="humid" value="{{weatherData.list[0].main.humidity}}"
+              max="100">{{weatherData.list[0].main.humidity}} %</progress>
           </div>
         </div>
         <div class="highlight-card">

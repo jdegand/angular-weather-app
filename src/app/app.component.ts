@@ -9,11 +9,11 @@ import { WeatherData } from './models/weather.model';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService){
-    
+  constructor(private weatherService: WeatherService) {
+
   }
 
-  city:string = 'Philadelphia';
+  city: string = 'Philadelphia';
   weatherData?: WeatherData;
   sideBarOpen = false;
 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.city = '';
   }
 
-  private getWeatherData(city: string){
+  private getWeatherData(city: string) {
     this.weatherService.getWeatherData(city).subscribe({
       next: (response) => {
         this.weatherData = response;
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
-  onSuggestion(city:string){
+  onSuggestion(city: string) {
     this.getWeatherData(city);
     this.city = '';
     this.sideBarOpen = !this.sideBarOpen;
