@@ -79,7 +79,6 @@
       <div *ngFor="let item of weatherData.list">
         <article *ngIf="item.dt_txt.includes('9:00:00')" class="five-day-card">
           <h2>{{item.dt_txt.split(' ')[0].replace('2022-', '')}}</h2>
-          <!--<h3>{{item.weather[0].main}}</h3> ngSwitch? here for images-->
           <!--had a wrapper around this -empty divs are created from the ngIf better to use a ng-template instead -->
           <div *ngIf="item.weather[0].description === 'clear sky'">
             <img src="../assets/Clear.png" alt="" />
@@ -144,9 +143,6 @@
           <h3><label for="humid">Humidity</label></h3>
           <div><span class="font-32">{{weatherData.list[0].main.humidity }}</span>%</div>
           <div class="flex progress-width justify-center">
-            <!--<div class="zero">0</div>
-            <div class="fifty">50</div>
-            <div class="hundred">100</div>-->
             <progress name="humid" value="{{weatherData.list[0].main.humidity}}"
               max="100">{{weatherData.list[0].main.humidity}} %</progress>
           </div>
