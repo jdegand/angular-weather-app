@@ -9,9 +9,7 @@ import { WeatherData } from './models/weather.model';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private weatherService: WeatherService) {
-
-  }
+  constructor(private readonly weatherService: WeatherService) { }
 
   city: string = 'Philadelphia';
   weatherData?: WeatherData;
@@ -44,6 +42,5 @@ export class AppComponent implements OnInit {
     this.city = '';
     this.sideBarOpen = !this.sideBarOpen;
   }
-
-  title = 'angular-weather-app';
+  
 }

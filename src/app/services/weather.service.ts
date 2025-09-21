@@ -9,7 +9,7 @@ import { WeatherData } from '../models/weather.model';
 })
 export class WeatherService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   getWeatherData(city: string): Observable<WeatherData> {
     return this.http.get<WeatherData>(`${environment.API_BASE_URL}?q=${city}&units=imperial&appid=${environment.API_KEY}`)
